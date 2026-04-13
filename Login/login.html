@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="login-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <div class="logo-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>SMS</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="login-container">
+
+    <div class="login-left">
+      <div class="overlay"></div>
+      <div class="left-content">
+        <div class="left-logo">🎓 SMS</div>
+
+        <div class="left-text">
+          <h2>Where schools come together.</h2>
+          <p>One secure platform for students, parents, teachers, and administrators to stay connected and organized.</p>
+
+          <div class="features">
+            <span>🔒 Secure</span>
+            <span>🏫 200+ Schools</span>
+            <span>📊 All-in-One</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <div class="login-card">
+
+        <div class="logo-dark">🎓 SMS</div>
+
+        <h2>Welcome back</h2>
+        <p class="subtitle">Sign in to your school portal</p>
+
+
+        <form>
+          <label><i class="fa-solid fa-school"></i> School ID</label>
+          <div class="input-group">
+            <input type="text" placeholder="Enter your School ID">
+          </div>
+      
+          <label><i class="fa-regular fa-envelope"></i> Username or Email</label>
+          <div class="input-group">
+            <input type="text" placeholder="Enter your username">
+          </div>
+      
+          <div class="password-row">
+            <label><i class="fa-solid fa-lock"></i> Password</label>
+            <a href="#">Forgot password?</a>
+          </div>
+      
+          <div class="input-group">
+            <input type="password" id="password" placeholder="Enter your password">
+            <i class="fa-regular fa-eye toggle-password"></i>
+          </div>
+
+      
+          <button type="submit">Sign In →</button>
+      
+        </form>
+
+        <p class="help">
+          Need help signing in?
+          <a href="#">Contact your school administrator</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
