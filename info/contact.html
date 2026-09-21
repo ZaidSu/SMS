@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — School Management System</title>
+  <meta name="description" content="Contact the School Management System team — demo requests, sales, and support.">
+  <meta property="og:title" content="Contact Us | School Management System">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/landing.css">
+  <link rel="stylesheet" href="../assets/css/info.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark"><i class="fa-solid fa-graduation-cap"></i></div>
+    School Management System
+  </a>
+  <div class="nav-links">
+    <a href="features.html" class="nav-link">Features</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="careers.html" class="nav-link">Careers</a>
+    <a href="contact.html" class="nav-link active">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="../login/login.html" class="btn-signin">Sign In</a>
+    <a href="contact.html" class="btn-demo"><i class="fa-solid fa-calendar-check" style="font-size:.8125rem"></i> Request Demo</a>
+  </div>
+  <button class="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div class="page-hero">
+  <h1>Get in Touch</h1>
+  <p>Whether you want a demo, have a question, or need support — we're here.</p>
+</div>
+<section class="section" style="padding-top:48px">
+<div class="contact-grid">
+  <div class="contact-info" data-aos="fade-right">
+    <h2>Let's talk</h2>
+    <p>Tell us about your school and what you're looking for. We typically respond within one business day.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+      <div><h4>Email</h4><p>hello@sms-platform.com</p></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+      <div><h4>Phone</h4><p>(888) 555-0100 &mdash; Mon–Fri, 9 AM–5 PM ET</p></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-calendar-check"></i></div>
+      <div><h4>Demo</h4><p>30-minute live demo with a product specialist</p></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon"><i class="fa-solid fa-headset"></i></div>
+      <div><h4>Support</h4><p>Existing customers: support portal in your admin dashboard</p></div>
+    </div>
+  </div>
+  <div class="contact-form" data-aos="fade-left">
+    <h3>Send us a message</h3>
+    <form id="contact-form" novalidate>
+      <div class="cf-grid">
+        <div class="cf-group"><label class="cf-label" for="contact-first">First Name *</label><input class="cf-input" id="contact-first" name="firstName" autocomplete="given-name" placeholder="First name" required></div>
+        <div class="cf-group"><label class="cf-label" for="contact-last">Last Name *</label><input class="cf-input" id="contact-last" name="lastName" autocomplete="family-name" placeholder="Last name" required></div>
+      </div>
+      <div class="cf-group"><label class="cf-label" for="contact-school">School Name *</label><input class="cf-input" id="contact-school" name="school" autocomplete="organization" placeholder="Your school or organization" required></div>
+      <div class="cf-grid">
+        <div class="cf-group"><label class="cf-label" for="contact-email">Email *</label><input class="cf-input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@school.edu" required></div>
+        <div class="cf-group"><label class="cf-label" for="contact-phone">Phone</label><input class="cf-input" id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555"></div>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label" for="contact-interest">I'm interested in…</label>
+        <select class="cf-input" id="contact-interest" name="interest">
+          <option>Requesting a demo</option>
+          <option>Pricing information</option>
+          <option>Switching from another platform</option>
+          <option>Enterprise / district pricing</option>
+          <option>General inquiry</option>
+        </select>
+      </div>
+      <div class="cf-group"><label class="cf-label" for="contact-message">Message</label><textarea class="cf-input textarea" id="contact-message" name="message" placeholder="Tell us about your school — number of students, campuses, and what you're looking for…"></textarea></div>
+      <div id="contact-status" role="status" aria-live="polite" style="display:none;margin:0 0 14px;padding:12px 14px;border-radius:10px;font-size:.875rem"></div>
+      <button class="cf-btn" id="contact-submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      <p style="font-size:.75rem;color:#64748b;margin:10px 0 0;line-height:1.5">Frontend demo: requests are saved in this browser so the workflow can be tested. Supabase + email delivery will replace browser storage in the backend phase.</p>
+    </form>
+  </div>
+</div>
+</section>
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3><i class="fa-solid fa-graduation-cap" style="color:#2563eb;margin-right:8px"></i>School Management System</h3>
+      <p>A complete, modern platform built for schools that want to run smarter — from enrollment to graduation.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="features.html" class="footer-link">Features</a>
+      <a href="pricing.html"  class="footer-link">Pricing</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="about.html"   class="footer-link">About</a>
+      <a href="careers.html" class="footer-link">Careers</a>
+      <a href="contact.html" class="footer-link">Contact</a>
+    </div>
+    <div>
+      <h4>Portals</h4>
+      <a href="../login/login.html" class="footer-link">Admin Portal</a>
+      <a href="../login/login.html" class="footer-link">Teacher Portal</a>
+      <a href="../login/login.html" class="footer-link">Parent Portal</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; <span id="footer-year"></span> School Management System.</div>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+<script src="contact.js"></script>
+<script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:400,easing:"ease-out-cubic",once:true});</script>
+</body>
+</html>

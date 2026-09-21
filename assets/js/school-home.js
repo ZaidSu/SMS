@@ -1,0 +1,55 @@
+var SMS_SCHOOL_HOME=(function(){
+  "use strict";
+  function esc(v){return SMS_UI.esc(v==null?"":String(v));}
+  function dayKey(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");}
+  function parseDate(s){var p=String(s||"").split("-");return p.length===3?new Date(Number(p[0]),Number(p[1])-1,Number(p[2])):new Date(s);}
+  function monthDay(s){var d=parseDate(s);return d.toLocaleDateString("en-US",{month:"short",day:"numeric"});}
+  function currentSchool(){var id=SMS_AUTH.getSchoolId();return SMS_SCHOOLS.find(function(s){return s.id===id;})||SMS_SCHOOLS[0]||{};}
+  function currentBranch(){var id=SMS_AUTH.getBranchId();return SMS_BRANCHES.find(function(b){return b.id===id;})||SMS_BRANCHES.find(function(b){return b.schoolId===SMS_AUTH.getSchoolId();})||{};}
+  function currentYear(){var schoolId=SMS_AUTH.getSchoolId();return SMS_SCHOOL_YEARS.find(function(y){return y.schoolId===schoolId&&y.isCurrent;})||null;}
+  function currentSemester(year,now){if(!year||!year.semesters||!year.semesters.length)return null;var key=dayKey(now);return year.semesters.find(function(t){return key>=t.start&&key<=t.end;})||year.semesters[0];}
+  function progress(start,end,now){var s=parseDate(start).getTime(),e=parseDate(end).getTime(),n=now.getTime();if(!isFinite(s)||!isFinite(e)||e<=s)return 0;return Math.max(0,Math.min(100,Math.round(((n-s)/(e-s))*100)));}
+
+  var ROUTES={
+    admin:{announcements:"./announcements.html",events:"./events.html",lunch:"./lunch.html",documents:"./documents.html"},
+    teacher:{announcements:"./announcements.html",events:"./schedule.html",lunch:null,documents:"./documents.html"},
+    parent:{announcements:"./news.html",events:"./events.html",lunch:"./cafeteria.html",documents:"./documents.html"},
+    student:{announcements:"./news.html",events:"./calendar.html",lunch:null,documents:"./documents.html"}
+  };
+  function routes(role){return ROUTES[role]||ROUTES.teacher;}
+  function quickLinks(role){
+    if(role==="admin")return [["fa-table-columns","Operations Dashboard","./dashboard.html"],["fa-bullhorn","Announcements","./announcements.html"],["fa-calendar-days","Calendar & Events","./events.html"],["fa-utensils","Lunch Menu","./lunch.html"],["fa-folder","Documents","./documents.html"]];
+    if(role==="parent")return [["fa-child","My Child","./home.html"],["fa-calendar-days","Calendar","./calendar.html"],["fa-utensils","Cafeteria","./cafeteria.html"],["fa-file-lines","Grades","./grades.html"],["fa-envelope","Messages","./messages.html"]];
+    if(role==="student")return [["fa-table-columns","My Dashboard","./dashboard.html"],["fa-book-open","My Classes","./classes.html"],["fa-list-check","Assignments","./assignments.html"],["fa-calendar-days","Calendar","./calendar.html"],["fa-envelope","Messages","./messages.html"]];
+    return [["fa-table-columns","My Dashboard","./dashboard.html"],["fa-book-open","My Classes","./classes.html"],["fa-calendar","My Schedule","./schedule.html"],["fa-bullhorn","Announcements","./announcements.html"],["fa-folder","Documents","./documents.html"]];
+  }
+  function optionalLink(url,label,extraStyle){return url?'<a class="home-card-link"'+(extraStyle?' style="'+extraStyle+'"':'')+' href="'+url+'">'+esc(label)+'</a>':'';}
+
+  function render(opts){
+    opts=opts||{};var role=opts.role||"teacher",r=routes(role),school=currentSchool(),branch=currentBranch(),year=currentYear(),now=new Date(),today=dayKey(now),branchId=branch.id||SMS_AUTH.getBranchId();
+    return Promise.all([SMS_API.getAnnouncements(branchId),SMS_API.getEvents(branchId),SMS_API.getLunchMenu(),SMS_API.getDocuments(branchId),SMS_API.getPhotoAlbums(branchId),SMS_API.getStudents(branchId)]).then(function(res){
+      var announcements=res[0].slice().sort(function(a,b){return String(b.date).localeCompare(String(a.date));});
+      var events=res[1].slice().filter(function(e){return e.endDate>=today;}).sort(function(a,b){return String(a.startDate).localeCompare(String(b.startDate));});
+      var lunch=res[2]||{menu:[]},docs=res[3].slice().sort(function(a,b){return String(b.uploadDate).localeCompare(String(a.uploadDate));}),albums=res[4].slice().sort(function(a,b){return String(b.date).localeCompare(String(a.date));}),students=res[5].filter(function(s){return s.status==="Active";});
+      var lunchToday=(lunch.menu||[]).find(function(m){return m.date===today;});
+      if(!lunchToday){var weekday=now.toLocaleDateString("en-US",{weekday:"long"});lunchToday=(lunch.menu||[]).find(function(m){return m.day===weekday;});}
+      var birthdays=students.filter(function(s){if(!s.dateOfBirth)return false;var d=parseDate(s.dateOfBirth);return d.getMonth()===now.getMonth();}).sort(function(a,b){return parseDate(a.dateOfBirth).getDate()-parseDate(b.dateOfBirth).getDate();}).slice(0,6);
+      var semester=currentSemester(year,now),p=year?progress(year.startDate,year.endDate,now):0,q=quickLinks(role),html='';
+
+      html+='<div class="school-home-hero"><div><div class="school-home-eyebrow">School community</div><div class="school-home-title">'+esc(school.name)+'</div><div class="school-home-sub">'+esc(branch.name||"All campuses")+' · News, calendar, cafeteria, documents, photos, and the information your school community needs in one place.</div></div><div class="school-year-chip"><i class="fa-solid fa-calendar-check"></i>'+esc(year?year.name:(school.currentYear||"Current school year"))+'</div></div>';
+      html+='<div class="home-quickbar">'+q.map(function(x){return '<a class="home-quicklink" href="'+x[2]+'"><i class="fa-solid '+x[0]+'"></i><span>'+esc(x[1])+'</span></a>';}).join('')+'</div>';
+      html+='<div class="school-home-grid"><div class="home-stack">';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-newspaper"></i>Headline News & Announcements</div>'+optionalLink(r.announcements,"View all")+'</div><div class="home-card-body"><div class="news-list">'+(announcements.length?announcements.slice(0,5).map(function(a){return '<div class="news-row"><div class="news-icon '+(a.priority==='high'?'high':'')+'"><i class="fa-solid '+(a.priority==='high'?'fa-circle-exclamation':'fa-bullhorn')+'"></i></div><div><div class="news-title">'+esc(a.title)+'</div><div class="news-body">'+esc(a.body)+'</div></div><div class="news-meta">'+esc(monthDay(a.date))+'</div></div>';}).join(''):'<div class="home-empty">No school announcements have been posted.</div>')+'</div></div></section>';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-calendar-days"></i>Upcoming Events</div>'+optionalLink(r.events,"Open calendar")+'</div><div class="home-card-body"><div class="event-list">'+(events.length?events.slice(0,5).map(function(e){var d=parseDate(e.startDate);return '<div class="event-row"><div class="event-date"><b>'+d.getDate()+'</b><span>'+d.toLocaleDateString('en-US',{month:'short'})+'</span></div><div><div class="event-title">'+esc(e.title)+'</div><div class="event-meta"><i class="fa-solid fa-location-dot"></i> '+esc(e.location||'Campus')+(e.requiresRegistration?' · Registration required':'')+'</div></div></div>';}).join(''):'<div class="home-empty">No upcoming events on the school calendar.</div>')+'</div></div></section>';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-images"></i>School Photos</div><span class="home-card-link">Latest albums</span></div><div class="home-card-body"><div class="album-grid">'+(albums.length?albums.slice(0,3).map(function(a){return '<div class="album-card" style="background:'+esc(a.coverColor||'#334155')+'"><div class="album-title">'+esc(a.title)+'</div><div class="album-meta">'+esc(a.photoCount)+' photos · '+esc(monthDay(a.date))+'</div></div>';}).join(''):'<div class="home-empty">No photo albums have been published.</div>')+'</div></div></section>';
+      html+='</div><aside class="home-stack">';
+      html+='<section class="home-card today-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-utensils"></i>Today\'s Lunch</div>'+optionalLink(r.lunch,"Full menu","color:#bfdbfe")+'</div><div class="home-card-body">'+(lunchToday?'<div class="today-date">'+esc(now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}))+'</div><div class="today-lunch-name">'+esc(lunchToday.mainDish)+'</div><div class="today-lunch-sides">Sides: '+esc((lunchToday.sides||[]).join(' · '))+'<br>Dessert: '+esc(lunchToday.dessert||'—')+'</div><div class="today-lunch-footer">'+(lunchToday.isHalal?'<span class="halal-chip"><i class="fa-solid fa-circle-check"></i> Halal</span>':'<span></span>')+'<span class="lunch-price">'+esc(lunchToday.price||'')+'</span></div>':'<div class="home-empty" style="color:#cbd5e1">No lunch menu has been posted for today.</div>')+'</div></section>';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-cake-candles"></i>Birthdays This Month</div></div><div class="home-card-body"><div class="birthday-list">'+(birthdays.length?birthdays.map(function(s){return '<div class="birthday-row"><div class="birthday-avatar">'+esc(SMS_UI.initials(s.fullName))+'</div><div class="birthday-name">'+esc(s.fullName)+'</div><div class="birthday-date">'+esc(monthDay(s.dateOfBirth))+'</div></div>';}).join(''):'<div class="home-empty">No student birthdays listed this month.</div>')+'</div></div></section>';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-calendar-week"></i>School Year</div></div><div class="home-card-body">'+(year?'<div class="term-card"><div><div class="term-name">'+esc(semester?semester.name:year.name)+'</div><div class="term-dates">'+esc(SMS_UI.fmtDate(year.startDate))+' – '+esc(SMS_UI.fmtDate(year.endDate))+'</div></div><div class="term-percent">'+p+'%</div></div><div class="term-progress"><span style="width:'+p+'%"></span></div>':'<div class="home-empty">No active school year configured.</div>')+'</div></section>';
+      html+='<section class="home-card"><div class="home-card-head"><div class="home-card-title"><i class="fa-solid fa-file-lines"></i>Featured Documents</div>'+optionalLink(r.documents,"All documents")+'</div><div class="home-card-body"><div class="docs-list">'+(docs.length?docs.slice(0,4).map(function(d){return '<div class="doc-row"><div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="doc-info"><div class="doc-title">'+esc(d.title)+'</div><div class="doc-meta">'+esc(d.category||d.fileType||'Document')+' · '+esc(monthDay(d.uploadDate))+'</div></div></div>';}).join(''):'<div class="home-empty">No featured documents available.</div>')+'</div></div></section>';
+      html+='</aside></div>';
+      var node=document.getElementById(opts.targetId||'page-content');if(node)node.innerHTML=html;return html;
+    });
+  }
+  return {render:render};
+})();

@@ -1,1022 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="landing-page-root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMS</title>
-
+  <title>SMS — School Management System</title>
+  <meta name="description" content="An all-in-one school management platform for admissions, student records, academics, attendance, billing, communication, school home, classrooms, families, and multi-campus operations.">
+  <meta property="og:title" content="SMS — School Management System">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="core.css">
-  <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="assets/css/landing.css">
 </head>
-
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-wrap">
-
-      <div class="nav-left">
-        <a href="index.html" class="logo">
-          <div class="logo-box">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <span>SMS</span>
-        </a>
-      </div>
-
-      <div class="nav-center">
-        <nav class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#features">Features</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#why-switch">Why Us</a>
-          <a href="#security">Security</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-
-      <div class="nav-right">
-        <div class="nav-actions">
-          <a href="Login/login.html" class="signin-link">Sign In</a>
-          <a href="#cta" class="demo-btn">Book a Demo</a>
-        </div>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-
+<header class="navbar">
+  <div class="container nav-wrap">
+    <div class="nav-left">
+      <a href="index.html" class="logo" aria-label="SMS home">
+        <div class="logo-box"><i class="fa-solid fa-graduation-cap"></i></div>
+        <span>SMS</span>
+      </a>
     </div>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-inner">
+    <div class="nav-center">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#features">Features</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#why-switch">Why Us</a>
+        <a href="#school-home">School Home</a>
+        <a href="#classrooms">Classrooms</a>
+        <a href="#roles">Portals</a>
         <a href="#security">Security</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-        <a href="#contact" class="mobile-signin">Sign In</a>
-        <a href="#cta" class="mobile-demo-btn">Book a Demo</a>
+    <div class="nav-right">
+      <div class="nav-actions">
+        <a href="login/login.html" class="signin-link">Sign In</a>
+        <a href="info/contact.html" class="demo-btn">Book a Demo</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#school-home">School Home</a>
+      <a href="#classrooms">Classrooms</a>
+      <a href="#roles">Portals</a>
+      <a href="#security">Security</a>
+      <a href="login/login.html" class="mobile-signin">Sign In</a>
+      <a href="info/contact.html" class="mobile-demo-btn">Book a Demo</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-wrap">
+      <div class="hero-left">
+        <p class="hero-tag">ALL-IN-ONE SCHOOL PLATFORM</p>
+        <h1>Everything your<br>school needs.<br><span>One platform.</span></h1>
+        <p class="hero-text">Manage students, families, admissions, classrooms, attendance, grading, billing, communication, documents, lunch, school-year transitions, and more — without piecing together separate systems.</p>
+
+        <div class="hero-buttons">
+          <a href="info/contact.html" class="hero-btn-primary">Book a Demo <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#features" class="hero-btn-secondary"><i class="fa-regular fa-circle-play"></i> Explore Features</a>
+        </div>
+
+        <div class="hero-trusted">
+          <div class="trusted-icons"><span>S</span><span>M</span><span>S</span><span>+</span></div>
+          <div class="trusted-text">
+            <h4>Built around the way schools actually work.</h4>
+            <p>Private schools · Islamic schools · academies · learning centers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="dashboard-card">
+          <div class="dashboard-top">
+            <div class="dashboard-dots"><span></span><span></span><span></span></div>
+            <p>Admin Dashboard</p>
+          </div>
+          <div class="dashboard-body">
+            <div class="stats-grid">
+              <div class="stat-box"><div class="stat-icon green"><i class="fa-solid fa-user-group"></i></div><div><p>Total Students</p><h3>847</h3></div></div>
+              <div class="stat-box"><div class="stat-icon blue"><i class="fa-solid fa-book-open"></i></div><div><p>Active Classes</p><h3>42</h3></div></div>
+              <div class="stat-box"><div class="stat-icon mint"><i class="fa-solid fa-arrow-trend-up"></i></div><div><p>Attendance</p><h3>96%</h3></div></div>
+              <div class="stat-box"><div class="stat-icon gold"><i class="fa-regular fa-bell"></i></div><div><p>Announcements</p><h3>12</h3></div></div>
+            </div>
+
+            <div class="attendance-box">
+              <h4>Weekly Attendance</h4>
+              <div class="attendance-row"><span>Mon</span><div class="bar"><div class="fill fill-96"></div></div><strong>96%</strong></div>
+              <div class="attendance-row"><span>Tue</span><div class="bar"><div class="fill fill-94"></div></div><strong>94%</strong></div>
+              <div class="attendance-row"><span>Wed</span><div class="bar"><div class="fill fill-97"></div></div><strong>97%</strong></div>
+              <div class="attendance-row"><span>Thu</span><div class="bar"><div class="fill fill-91"></div></div><strong>91%</strong></div>
+              <div class="attendance-row"><span>Fri</span><div class="bar"><div class="fill fill-89"></div></div><strong>89%</strong></div>
+            </div>
+
+            <div class="activity-box">
+              <h4>Recent Activity</h4>
+              <div class="activity-item"><div class="activity-left"><i class="fa-regular fa-circle-check"></i><span>Quarter grades published</span></div><small>2h ago</small></div>
+              <div class="activity-item"><div class="activity-left"><i class="fa-regular fa-bell"></i><span>Family night announcement posted</span></div><small>5h ago</small></div>
+              <div class="activity-item"><div class="activity-left"><i class="fa-regular fa-calendar"></i><span>Admissions review scheduled</span></div><small>1d ago</small></div>
+            </div>
+          </div>
+          <div class="floating-card"><div class="floating-icon"><i class="fa-regular fa-circle-check"></i></div><div><h5>School Year</h5><p>Current term active & organized</p></div></div>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="container hero-wrap">
-
-        <div class="hero-left">
-          <p class="hero-tag">ALL-IN-ONE SCHOOL PLATFORM</p>
-
-          <h1>
-            Everything your
-            <br>
-            school needs.
-            <span>One platform.</span>
-          </h1>
-
-          <p class="hero-text">
-            Manage students, communication, attendance, grading, documents,
-            enrollment, tuition, and reporting — all in one secure,
-            easy-to-use system built for modern schools.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#cta" class="hero-btn-primary">
-              Book a Demo
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <a href="#features" class="hero-btn-secondary">
-              <i class="fa-regular fa-circle-play"></i>
-              Learn More
-            </a>
-          </div>
-
-          <div class="hero-trusted">
-            <div class="trusted-icons">
-              <span>S</span>
-              <span>A</span>
-              <span>L</span>
-              <span>M</span>
-            </div>
-
-            <div class="trusted-text">
-              <h4>Trusted by schools, parents, teachers, and even students.</h4>
-              <p>Private and Islamic</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="dashboard-card">
-
-            <div class="dashboard-top">
-              <div class="dashboard-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <p>Admin Dashboard</p>
-            </div>
-
-            <div class="dashboard-body">
-              <div class="stats-grid">
-
-                <div class="stat-box">
-                  <div class="stat-icon green">
-                    <i class="fa-solid fa-user-group"></i>
-                  </div>
-                  <div>
-                    <p>Total Students</p>
-                    <h3>847</h3>
-                  </div>
-                </div>
-
-                <div class="stat-box">
-                  <div class="stat-icon blue">
-                    <i class="fa-solid fa-book-open"></i>
-                  </div>
-                  <div>
-                    <p>Active Classes</p>
-                    <h3>42</h3>
-                  </div>
-                </div>
-
-                <div class="stat-box">
-                  <div class="stat-icon mint">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                  </div>
-                  <div>
-                    <p>Avg. GPA</p>
-                    <h3>3.6</h3>
-                  </div>
-                </div>
-
-                <div class="stat-box">
-                  <div class="stat-icon gold">
-                    <i class="fa-regular fa-bell"></i>
-                  </div>
-                  <div>
-                    <p>Announcements</p>
-                    <h3>12</h3>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="attendance-box">
-                <h4>Weekly Attendance</h4>
-
-                <div class="attendance-row">
-                  <span>Mon</span>
-                  <div class="bar">
-                    <div class="fill fill-96"></div>
-                  </div>
-                  <strong>96%</strong>
-                </div>
-
-                <div class="attendance-row">
-                  <span>Tue</span>
-                  <div class="bar">
-                    <div class="fill fill-94"></div>
-                  </div>
-                  <strong>94%</strong>
-                </div>
-
-                <div class="attendance-row">
-                  <span>Wed</span>
-                  <div class="bar">
-                    <div class="fill fill-97"></div>
-                  </div>
-                  <strong>97%</strong>
-                </div>
-
-                <div class="attendance-row">
-                  <span>Thu</span>
-                  <div class="bar">
-                    <div class="fill fill-91"></div>
-                  </div>
-                  <strong>91%</strong>
-                </div>
-
-                <div class="attendance-row">
-                  <span>Fri</span>
-                  <div class="bar">
-                    <div class="fill fill-89"></div>
-                  </div>
-                  <strong>89%</strong>
-                </div>
-              </div>
-
-              <div class="activity-box">
-                <h4>Recent Activity</h4>
-
-                <div class="activity-item">
-                  <div class="activity-left">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <span>Grade reports published for Q2</span>
-                  </div>
-                  <small>2h ago</small>
-                </div>
-
-                <div class="activity-item">
-                  <div class="activity-left">
-                    <i class="fa-regular fa-bell"></i>
-                    <span>School picnic announced for Mar 15</span>
-                  </div>
-                  <small>5h ago</small>
-                </div>
-
-                <div class="activity-item">
-                  <div class="activity-left">
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>Enrollment deadline extended</span>
-                  </div>
-                  <small>1d ago</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="floating-card">
-              <div class="floating-icon">
-                <i class="fa-regular fa-circle-check"></i>
-              </div>
-              <div>
-                <h5>Tuition Collected</h5>
-                <p>98% on-time this month</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+  <section class="trusted-section" id="solutions">
+    <div class="container trusted-wrap">
+      <p class="trusted-title">DESIGNED FOR SCHOOLS THAT WANT ONE CONNECTED SYSTEM</p>
+      <div class="trusted-logos">
+        <span>Private Schools</span><span>Islamic Schools</span><span>Charter Schools</span><span>Academies</span><span>Learning Centers</span><span>Multi-Campus Schools</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Trusted -->
-    <section class="trusted-section" id="solutions">
-      <div class="container trusted-wrap">
-        <p class="trusted-title">
-          TRUSTED BY SCHOOLS BUILDING MODERN EDUCATION SYSTEMS
-        </p>
+  <section class="features" id="features">
+    <div class="container">
+      <p class="features-tag">CORE MODULES</p>
+      <h2 class="features-title">Everything you need to run your school</h2>
+      <p class="features-subtitle">From the first application to the next school year, each workflow stays connected to the same student, family, class, campus, and school records.</p>
 
-        <div class="trusted-logos">
-          <span>Private Schools</span>
-          <span>Islamic Schools</span>
-          <span>Charter Schools</span>
-          <span>Academies</span>
-          <span>Learning Centers</span>
-          <span>Education Foundations</span>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon green"><i class="fa-solid fa-user-plus"></i></div><h3>Admissions</h3><p>Applications, review, decisions, testing notes, and accepted-student enrollment.</p></div>
+        <div class="feature-card"><div class="feature-icon blue"><i class="fa-solid fa-id-card"></i></div><h3>Student Records</h3><p>Legal names, addresses, guardians, enrollment history, emergency information, and school IDs.</p></div>
+        <div class="feature-card"><div class="feature-icon mint"><i class="fa-regular fa-calendar-check"></i></div><h3>Attendance</h3><p>Daily and class attendance with present, absent, tardy, and excused statuses.</p></div>
+        <div class="feature-card"><div class="feature-icon dark"><i class="fa-solid fa-chart-column"></i></div><h3>Grades & Reports</h3><p>Assignments, gradebook, semester results, class averages, and printable report cards.</p></div>
+
+        <div class="feature-card"><div class="feature-icon gold"><i class="fa-solid fa-school"></i></div><h3>School Home</h3><p>Announcements, events, lunch, birthdays, featured documents, photos, and school updates.</p></div>
+        <div class="feature-card"><div class="feature-icon teal"><i class="fa-solid fa-chalkboard-user"></i></div><h3>Class Workspaces</h3><p>Semester 1 and Semester 2 classes with news, calendar, documents, photos, roster, grades, and attendance.</p></div>
+        <div class="feature-card"><div class="feature-icon purple"><i class="fa-solid fa-people-roof"></i></div><h3>Families & Guardians</h3><p>Multiple guardians, legal status, pickup authorization, addresses, contact preferences, and linked children.</p></div>
+        <div class="feature-card"><div class="feature-icon slate"><i class="fa-solid fa-dollar-sign"></i></div><h3>Billing</h3><p>Charges, payments, outstanding balances, receipt numbers, printable receipts, and account statements.</p></div>
+
+        <div class="feature-card"><div class="feature-icon rose"><i class="fa-regular fa-envelope"></i></div><h3>Communication</h3><p>Announcements, messages, audience targeting, forms, events, and school-wide updates.</p></div>
+        <div class="feature-card"><div class="feature-icon indigo"><i class="fa-regular fa-file-lines"></i></div><h3>Documents & Media</h3><p>School files, classroom resources, downloadable documents, forms, and photo albums.</p></div>
+        <div class="feature-card"><div class="feature-icon blue"><i class="fa-solid fa-calendar-plus"></i></div><h3>School Year Rollover</h3><p>Close and archive a year, promote or retain students, mark graduates and non-returning students, then open the next year.</p></div>
+        <div class="feature-card"><div class="feature-icon mint"><i class="fa-solid fa-sitemap"></i></div><h3>Multi-School Operations</h3><p>Organizations, branches, campus-aware records, global users, and centralized oversight.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-band alt" id="school-home">
+    <div class="container school-home-showcase">
+      <div class="showcase-copy">
+        <p class="product-kicker">THE SCHOOL DAY, IN ONE PLACE</p>
+        <h3>A real School Home for staff, families, and students.</h3>
+        <p>School life is more than a dashboard. Give your community one place to see what is happening today without digging through separate modules.</p>
+        <ul class="showcase-list">
+          <li><i class="fa-solid fa-circle-check"></i><span>Headline announcements and urgent updates</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Upcoming events and calendar items</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Today's lunch menu and cafeteria details</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Birthdays, school photos, handbooks, forms, and featured resources</span></li>
+        </ul>
+      </div>
+
+      <div class="school-home-ui" aria-label="School Home preview">
+        <div class="ui-toolbar"><strong>School Home</strong><span>Today at your school</span></div>
+        <div class="ui-body">
+          <div class="school-home-grid">
+            <div class="ui-panel">
+              <h4><i class="fa-solid fa-bullhorn"></i> Headline News</h4>
+              <div class="news-row"><b>Family Night this Thursday</b><small>All families · Main Campus</small></div>
+              <div class="news-row"><b>Picture Day reminder</b><small>Grades K–8 · Friday</small></div>
+              <div class="news-row"><b>Registration opens next week</b><small>Returning families</small></div>
+            </div>
+            <div>
+              <div class="ui-panel" style="margin-bottom:14px">
+                <h4><i class="fa-solid fa-calendar-days"></i> Upcoming</h4>
+                <div class="mini-event"><div class="mini-date">08</div><div><b>Family Night</b><small>6:30 PM</small></div></div>
+                <div class="mini-event"><div class="mini-date">15</div><div><b>Picture Day</b><small>All day</small></div></div>
+              </div>
+              <div class="ui-panel">
+                <h4><i class="fa-solid fa-utensils"></i> Today's Lunch</h4>
+                <div class="lunch-main">Chicken Shawarma Bowl</div>
+                <div class="lunch-detail">Rice · salad · fruit<br><strong style="color:#4d8a81">Menu posted</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="school-home-footer">
+            <div><i class="fa-solid fa-cake-candles"></i><span><b>Birthdays</b><small>4 this month</small></span></div>
+            <div><i class="fa-solid fa-images"></i><span><b>School Photos</b><small>3 recent albums</small></span></div>
+            <div><i class="fa-solid fa-file-lines"></i><span><b>Documents</b><small>Handbooks & forms</small></span></div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Core Features -->
-    <section class="features" id="features">
-      <div class="container">
-
-        <p class="features-tag">CORE MODULES</p>
-
-        <h2 class="features-title">
-          Everything you need to run your school
-        </h2>
-
-        <p class="features-subtitle">
-          From enrollment to graduation, every workflow lives in one unified platform.
-        </p>
-
-        <div class="features-grid">
-
-          <div class="feature-card">
-            <div class="feature-icon green">
-              <i class="fa-solid fa-user-plus"></i>
-            </div>
-            <h3>Admissions</h3>
-            <p>Streamlined enrollment with digital applications and tracking.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon blue">
-              <i class="fa-solid fa-chart-column"></i>
-            </div>
-            <h3>Grades & Reports</h3>
-            <p>Gradebook, GPA calculations, and auto-generated report cards.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon mint">
-              <i class="fa-regular fa-calendar-check"></i>
-            </div>
-            <h3>Attendance</h3>
-            <p>Daily tracking with instant parent notifications.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon dark">
-              <i class="fa-regular fa-file-lines"></i>
-            </div>
-            <h3>Documents</h3>
-            <p>Centralized forms, transcripts, and school records.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon gold">
-              <i class="fa-solid fa-dollar-sign"></i>
-            </div>
-            <h3>Tuition</h3>
-            <p>Track fees, payment plans, and generate invoices.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon teal">
-              <i class="fa-regular fa-envelope"></i>
-            </div>
-            <h3>Communication</h3>
-            <p>Email, SMS, and in-app announcements to parents and staff.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon blue">
-              <i class="fa-solid fa-shield"></i>
-            </div>
-            <h3>Audit Logs</h3>
-            <p>Full transparency on who did what and when.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon mint">
-              <i class="fa-solid fa-clipboard-check"></i>
-            </div>
-            <h3>Compliance</h3>
-            <p>Accreditation-ready reporting and document organization.</p>
-          </div>
-
+  <section class="product-band" id="classrooms">
+    <div class="container class-showcase">
+      <div class="class-ui" aria-label="Class workspace preview">
+        <div class="ui-toolbar"><strong>My Classes</strong><span>Teacher Workspace</span></div>
+        <div class="class-tabs"><button class="active" type="button">Semester 1</button><button type="button">Semester 2</button></div>
+        <div class="class-listing">
+          <div class="class-card-mini"><div><small>5th Grade · Full Year</small><h4>English Language Arts</h4><p>22 students · Room 204 · Mon/Wed/Fri</p></div><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <div class="class-card-mini"><div><small>5th Grade · Semester 1</small><h4>Islamic Studies</h4><p>20 students · Room 112 · Tue/Thu</p></div><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </div>
+        <div class="class-workspace">
+          <div class="workspace-title"><div><small style="color:#94a3b8">Class Home</small><h4>English Language Arts</h4></div><span>Semester 1</span></div>
+          <div class="workspace-tabs"><b>Home</b><span>News</span><span>Calendar</span><span>Documents</span><span>Photos</span><span>Students</span></div>
+          <div class="workspace-stats"><div><span>Students</span><b>22</b></div><div><span>Assignments</span><b>6</b></div><div><span>Class Average</span><b>89%</b></div></div>
         </div>
       </div>
-    </section>
 
-    <!-- Experience -->
-    <section class="experience" id="about">
-      <div class="container">
-
-        <p class="experience-tag">
-          BUILT FOR EVERYONE
-        </p>
-
-        <h2 class="experience-title">
-          One platform, four tailored experiences
-        </h2>
-
-        <p class="experience-subtitle">
-          Every user — parent, teacher, admin, or super admin — gets exactly the tools they need.
-        </p>
-
-        <div class="experience-tabs">
-          <button class="tab parent active" data-tab="parent">
-            <i class="fa-regular fa-user"></i>
-            Parent View
-          </button>
-
-          <button class="tab teacher" data-tab="teacher">
-            <i class="fa-solid fa-book-open"></i>
-            Teacher View
-          </button>
-
-          <button class="tab admin" data-tab="admin">
-            <i class="fa-solid fa-gear"></i>
-            Admin View
-          </button>
-
-          <button class="tab superadmin" data-tab="superadmin">
-            <i class="fa-solid fa-shield-halved"></i>
-            Super Admin
-          </button>
-        </div>
-
-        <!-- Parent -->
-        <div class="experience-content active" id="parent">
-          <div class="experience-grid">
-
-            <div class="experience-image">
-              <img src="images/parentLaptop.png" alt="">
-            </div>
-
-            <div class="experience-text">
-              <h3>Parent View</h3>
-
-              <ul>
-                <li><i class="fa-solid fa-circle-check"></i> View grades and attendance in real-time</li>
-                <li><i class="fa-solid fa-circle-check"></i> Receive instant school announcements</li>
-                <li><i class="fa-solid fa-circle-check"></i> Access lunch menus and calendars</li>
-                <li><i class="fa-solid fa-circle-check"></i> Submit forms and permission slips digitally</li>
-                <li><i class="fa-solid fa-circle-check"></i> Track tuition and payment history</li>
-              </ul>
-
-              <div class="dashboard-preview">
-                <p class="dashboard-label">DASHBOARD PREVIEW</p>
-
-                <div class="children-card">
-                  <h4>My Children</h4>
-
-                  <div class="child-row">
-                    <div class="child-left">
-                      <span class="child-avatar">A</span>
-                      <p>Amira Hassan — Grade 5</p>
-                    </div>
-                    <i class="fa-regular fa-circle-check"></i>
-                  </div>
-
-                  <div class="child-row">
-                    <div class="child-left">
-                      <span class="child-avatar">Y</span>
-                      <p>Yusuf Hassan — Grade 3</p>
-                    </div>
-                    <i class="fa-regular fa-circle-check"></i>
-                  </div>
-                </div>
-
-                <div class="parent-stats">
-                  <div class="stat-box">
-                    <i class="fa-regular fa-star"></i>
-                    <h3>3.8</h3>
-                    <p>GPA</p>
-                  </div>
-
-                  <div class="stat-box">
-                    <i class="fa-regular fa-clock"></i>
-                    <h3>97%</h3>
-                    <p>Attendance</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Teacher -->
-        <div class="experience-content" id="teacher">
-          <div class="experience-grid">
-
-            <div class="experience-image">
-              <img src="images/teacherLaptop.png" alt="">
-            </div>
-
-            <div class="experience-text">
-              <h3>Teacher View</h3>
-
-              <ul>
-                <li><i class="fa-solid fa-circle-check"></i> Digital gradebook with GPA tracking</li>
-                <li><i class="fa-solid fa-circle-check"></i> One-click attendance marking</li>
-                <li><i class="fa-solid fa-circle-check"></i> Post announcements to parents instantly</li>
-                <li><i class="fa-solid fa-circle-check"></i> Access class rosters and student profiles</li>
-                <li><i class="fa-solid fa-circle-check"></i> Manage assignments and report cards</li>
-              </ul>
-
-              <div class="dashboard-preview">
-                <p class="dashboard-label">DASHBOARD PREVIEW</p>
-
-                <div class="teacher-classes-card">
-                  <h4>Today's Classes</h4>
-
-                  <div class="teacher-class-row">
-                    <span>Math 5A</span>
-                    <span>8:00 AM</span>
-                    <span>24 students</span>
-                  </div>
-
-                  <div class="teacher-class-row">
-                    <span>Science 5B</span>
-                    <span>10:30 AM</span>
-                    <span>22 students</span>
-                  </div>
-
-                  <div class="teacher-class-row">
-                    <span>Quran 4A</span>
-                    <span>1:00 PM</span>
-                    <span>20 students</span>
-                  </div>
-                </div>
-
-                <div class="teacher-status-card">
-                  <i class="fa-regular fa-circle-check"></i>
-                  <span>Attendance submitted for Math 5A</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Admin -->
-        <div class="experience-content" id="admin">
-          <div class="experience-grid">
-
-            <div class="experience-image">
-              <img src="images/adminLaptop.png" alt="">
-            </div>
-
-            <div class="experience-text">
-              <h3>Admin View</h3>
-
-              <ul>
-                <li><i class="fa-solid fa-circle-check"></i> Complete student and staff management</li>
-                <li><i class="fa-solid fa-circle-check"></i> School-wide communication tools</li>
-                <li><i class="fa-solid fa-circle-check"></i> Enrollment and admissions workflows</li>
-                <li><i class="fa-solid fa-circle-check"></i> Financial tracking and tuition reports</li>
-                <li><i class="fa-solid fa-circle-check"></i> Audit logs and compliance tools</li>
-              </ul>
-
-              <div class="dashboard-preview">
-                <p class="dashboard-label">DASHBOARD PREVIEW</p>
-
-                <div class="admin-stats">
-                  <div class="admin-stat-card">
-                    <h3>847</h3>
-                    <p>Students</p>
-                  </div>
-
-                  <div class="admin-stat-card">
-                    <h3>64</h3>
-                    <p>Staff</p>
-                  </div>
-
-                  <div class="admin-stat-card">
-                    <h3>42</h3>
-                    <p>Classes</p>
-                  </div>
-                </div>
-
-                <div class="admin-actions-card">
-                  <h4>Recent Actions</h4>
-
-                  <div class="admin-action-row">
-                    <i class="fa-regular fa-bell"></i>
-                    <span>New student enrolled: Sarah K.</span>
-                  </div>
-
-                  <div class="admin-action-row success">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <span>Tuition report generated</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Super Admin -->
-        <div class="experience-content" id="superadmin">
-          <div class="experience-grid">
-
-            <div class="experience-image superadmin-placeholder">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-
-            <div class="experience-text">
-              <h3>Super Admin</h3>
-
-              <ul>
-                <li><i class="fa-solid fa-circle-check"></i> Multi-branch school oversight</li>
-                <li><i class="fa-solid fa-circle-check"></i> Organization-wide role templates</li>
-                <li><i class="fa-solid fa-circle-check"></i> Theme and branding controls</li>
-                <li><i class="fa-solid fa-circle-check"></i> Global security and compliance settings</li>
-                <li><i class="fa-solid fa-circle-check"></i> Cross-branch analytics and reporting</li>
-              </ul>
-
-              <div class="dashboard-preview">
-                <p class="dashboard-label">DASHBOARD PREVIEW</p>
-
-                <div class="superadmin-stats">
-                  <div class="superadmin-stat-card">
-                    <h3>5</h3>
-                    <p>Organizations</p>
-                  </div>
-
-                  <div class="superadmin-stat-card">
-                    <h3>12</h3>
-                    <p>Branches</p>
-                  </div>
-
-                  <div class="superadmin-stat-card">
-                    <h3>3,240</h3>
-                    <p>Total Users</p>
-                  </div>
-
-                  <div class="superadmin-stat-card">
-                    <h3>98%</h3>
-                    <p>Active</p>
-                  </div>
-                </div>
-
-                <div class="branch-health-card">
-                  <h4>Branch Health</h4>
-
-                  <div class="branch-row">
-                    <span class="branch-dot"></span>
-                    Prosper — 98%
-                  </div>
-
-                  <div class="branch-row">
-                    <span class="branch-dot"></span>
-                    Desoto — 95%
-                  </div>
-
-                  <div class="branch-row">
-                    <span class="branch-dot"></span>
-                    Dallas — 97%
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
+      <div class="showcase-copy">
+        <p class="product-kicker">BUILT AROUND THE CLASSROOM</p>
+        <h3>Semester-aware classes with a complete Class Home.</h3>
+        <p>Keep the organization of a traditional school management system while making the actual teacher experience cleaner and easier to use.</p>
+        <ul class="showcase-list">
+          <li><i class="fa-solid fa-circle-check"></i><span>Semester 1, Semester 2, and full-year classes</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>News, calendar, documents, photos, and roster within every class</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Attendance, assignments, gradebook, report cards, and student details</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Teacher access follows the permission set chosen by school leadership</span></li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Comparison -->
-    <section class="comparison" id="why-switch">
-      <div class="container">
+  <section class="experience" id="roles">
+    <div class="container">
+      <p class="experience-tag">BUILT FOR EVERYONE</p>
+      <h2 class="experience-title">One platform, four tailored experiences</h2>
+      <p class="experience-subtitle">Each role gets a focused workspace with the information and actions they actually need. Permissions keep sensitive or unrelated tools out of the way.</p>
 
-        <p class="comparison-tag">
-          WHY SWITCH
-        </p>
+      <div class="experience-tabs" role="tablist" aria-label="Portal experiences">
+        <button class="tab parent active" data-tab="parent" type="button"><i class="fa-regular fa-user"></i> Parent</button>
+        <button class="tab teacher" data-tab="teacher" type="button"><i class="fa-solid fa-book-open"></i> Teacher</button>
+        <button class="tab admin" data-tab="admin" type="button"><i class="fa-solid fa-gear"></i> School Admin</button>
+        <button class="tab superadmin" data-tab="superadmin" type="button"><i class="fa-solid fa-shield-halved"></i> Super Admin</button>
+      </div>
 
-        <h2 class="comparison-title">
-          Stop juggling tools. Start running your school.
-        </h2>
-
-        <div class="comparison-grid">
-
-          <div class="comparison-card old">
-            <h3>The Old Way</h3>
-
-            <ul>
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                Scattered spreadsheets for grades and attendance
-              </li>
-
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                Disconnected email threads with parents
-              </li>
-
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                Paper forms that get lost or delayed
-              </li>
-
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                No visibility into who accessed what
-              </li>
-
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                Manual tuition tracking and reminders
-              </li>
-
-              <li>
-                <i class="fa-solid fa-xmark"></i>
-                Different tools for every department
-              </li>
-            </ul>
+      <div class="experience-content active" id="parent">
+        <div class="role-experience-card">
+          <div class="role-experience-copy">
+            <div class="role-icon parent"><i class="fa-solid fa-people-roof"></i></div>
+            <p class="role-kicker">PARENT PORTAL</p>
+            <h3>Everything a family needs, without the clutter.</h3>
+            <p>Parents can move between children, keep up with academics and school life, and understand their account from one calm workspace.</p>
+            <div class="role-feature-grid">
+              <span><i class="fa-solid fa-check"></i> Grades & attendance</span>
+              <span><i class="fa-solid fa-check"></i> Classes & assignments</span>
+              <span><i class="fa-solid fa-check"></i> Tuition & receipts</span>
+              <span><i class="fa-solid fa-check"></i> Forms & documents</span>
+              <span><i class="fa-solid fa-check"></i> Events & school news</span>
+              <span><i class="fa-solid fa-check"></i> Multi-child family view</span>
+            </div>
           </div>
-
-          <div class="comparison-card new">
-            <h3>The SMS Way</h3>
-
-            <ul>
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                One unified gradebook with instant parent access
-              </li>
-
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                Built-in messaging, announcements, and notifications
-              </li>
-
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                Digital forms with signatures and tracking
-              </li>
-
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                Full audit trail for every action
-              </li>
-
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                Automated tuition invoices and reminders
-              </li>
-
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                Everything in one clean, secure platform
-              </li>
-            </ul>
+          <div class="role-ui-preview parent-preview">
+            <div class="role-ui-top"><span>Family Overview</span><small>2 students</small></div>
+            <div class="role-student-row"><div class="role-avatar">AH</div><div><b>Amira Hassan</b><small>Grade 5 · 97% attendance</small></div><span class="role-pill good">On Track</span></div>
+            <div class="role-student-row"><div class="role-avatar alt">YH</div><div><b>Yusuf Hassan</b><small>Grade 3 · 95% attendance</small></div><span class="role-pill good">On Track</span></div>
+            <div class="role-mini-cards"><div><small>Current Balance</small><b>$420</b></div><div><small>Upcoming Events</small><b>3</b></div><div><small>Forms Due</small><b>1</b></div></div>
           </div>
-
         </div>
       </div>
-    </section>
 
-    <!-- Security -->
-    <section class="security" id="security">
-      <div class="container">
-
-        <p class="security-tag">
-          SECURITY & TRUST
-        </p>
-
-        <h2 class="security-title">
-          Your data is safe. Your school is protected.
-        </h2>
-
-        <p class="security-subtitle">
-          We take security seriously — from encryption to compliance, every layer is built
-          to protect student and family information.
-        </p>
-
-        <div class="security-grid">
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-lock"></i>
+      <div class="experience-content" id="teacher">
+        <div class="role-experience-card">
+          <div class="role-experience-copy">
+            <div class="role-icon teacher"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <p class="role-kicker">TEACHER PORTAL</p>
+            <h3>A classroom workspace that matches each teacher's responsibilities.</h3>
+            <p>Teachers get semester-aware classes, Class Home, academic tools, communication, and only the student information leadership has allowed.</p>
+            <div class="role-feature-grid">
+              <span><i class="fa-solid fa-check"></i> Semester 1 & 2 classes</span>
+              <span><i class="fa-solid fa-check"></i> Attendance & gradebook</span>
+              <span><i class="fa-solid fa-check"></i> Assignments & report cards</span>
+              <span><i class="fa-solid fa-check"></i> Class news & documents</span>
+              <span><i class="fa-solid fa-check"></i> School Home & schedule</span>
+              <span><i class="fa-solid fa-check"></i> Granular permissions</span>
             </div>
-            <h3>End-to-End Encryption</h3>
-            <p>All data is encrypted in transit and at rest.</p>
           </div>
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-eye"></i>
-            </div>
-            <h3>Role-Based Access</h3>
-            <p>Users only see what they are authorized to see.</p>
+          <div class="role-ui-preview">
+            <div class="role-ui-top"><span>Teacher Access</span><small>Standard Teacher</small></div>
+            <div class="permission-preview-row"><div><i class="fa-solid fa-clipboard-check"></i><span>Attendance</span></div><b class="manage">Manage</b></div>
+            <div class="permission-preview-row"><div><i class="fa-solid fa-graduation-cap"></i><span>Gradebook</span></div><b class="view">View only</b></div>
+            <div class="permission-preview-row"><div><i class="fa-solid fa-address-book"></i><span>Guardian Contacts</span></div><b class="none">No access</b></div>
+            <div class="permission-preview-row"><div><i class="fa-solid fa-folder-open"></i><span>Documents</span></div><b class="manage">Manage</b></div>
           </div>
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3>FERPA Compliant</h3>
-            <p>Built to meet federal education privacy standards.</p>
-          </div>
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-server"></i>
-            </div>
-            <h3>SOC 2 Ready</h3>
-            <p>Enterprise-grade infrastructure and monitoring.</p>
-          </div>
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3>Accreditation Reports</h3>
-            <p>One-click reporting for accreditation reviews.</p>
-          </div>
-
-          <div class="security-card">
-            <div class="security-icon">
-              <i class="fa-solid fa-key"></i>
-            </div>
-            <h3>Re-Auth for Sensitive Data</h3>
-            <p>Extra verification before accessing SSNs and medical records.</p>
-          </div>
-
         </div>
       </div>
-    </section>
 
-    <!-- Platform Overview -->
-    <section class="platform-overview" id="platform">
-      <div class="container">
-
-        <p class="platform-tag">
-          COMPREHENSIVE PLATFORM
-        </p>
-
-        <h2 class="platform-title">
-          Built for modern schools
-        </h2>
-
-        <p class="platform-subtitle">
-          Everything you need to organize, communicate, and grow — designed
-          specifically for the way schools actually work.
-        </p>
-
-        <div class="platform-grid">
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-solid fa-users"></i>
+      <div class="experience-content" id="admin">
+        <div class="role-experience-card">
+          <div class="role-experience-copy">
+            <div class="role-icon admin"><i class="fa-solid fa-school"></i></div>
+            <p class="role-kicker">SCHOOL ADMINISTRATION</p>
+            <h3>Run the school from admissions through year-end closeout.</h3>
+            <p>Leadership gets the operational tools to manage students, families, staff, academics, billing, communication, records, and the next school year.</p>
+            <div class="role-feature-grid">
+              <span><i class="fa-solid fa-check"></i> Admissions & enrollment</span>
+              <span><i class="fa-solid fa-check"></i> Students & guardians</span>
+              <span><i class="fa-solid fa-check"></i> Staff & permissions</span>
+              <span><i class="fa-solid fa-check"></i> Billing & receipts</span>
+              <span><i class="fa-solid fa-check"></i> Events, lunch & documents</span>
+              <span><i class="fa-solid fa-check"></i> School-year rollover</span>
             </div>
-            <h3>Student Records</h3>
-            <p>
-              Complete profiles with academic history, health info,
-              and family contacts — all in one place.
-            </p>
           </div>
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-regular fa-message"></i>
-            </div>
-            <h3>School Communication</h3>
-            <p>
-              Announcements, emails, and in-app alerts keep
-              everyone on the same page.
-            </p>
+          <div class="role-ui-preview">
+            <div class="role-ui-top"><span>School Operations</span><small>Richardson Campus</small></div>
+            <div class="admin-role-stats"><div><small>Students</small><b>847</b><span>Active</span></div><div><small>Teachers</small><b>64</b><span>12 classes today</span></div></div>
+            <div class="admin-role-stats"><div><small>Attendance</small><b>96%</b><span>Today</span></div><div><small>Outstanding</small><b>$29K</b><span>Family billing</span></div></div>
+            <div class="role-progress"><div><span>2026–2027 school year</span><b>In progress</b></div><div class="role-progress-track"><span></span></div></div>
           </div>
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-            <h3>Parent Engagement</h3>
-            <p>
-              Give parents real-time visibility into grades,
-              attendance, events, and school life.
-            </p>
-          </div>
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-solid fa-screwdriver-wrench"></i>
-            </div>
-            <h3>Staff Tools</h3>
-            <p>
-              Gradebooks, attendance sheets, lesson plans, and
-              schedule management for teachers.
-            </p>
-          </div>
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-regular fa-file-lines"></i>
-            </div>
-            <h3>Forms & Compliance</h3>
-            <p>
-              Digital forms, e-signatures, and document
-              management for admissions, health, and compliance.
-            </p>
-          </div>
-
-          <div class="platform-card">
-            <div class="platform-icon">
-              <i class="fa-regular fa-clock"></i>
-            </div>
-            <h3>School-Wide Reporting</h3>
-            <p>
-              Dashboards and reports for enrollment, grades,
-              finances, and accreditation readiness.
-            </p>
-          </div>
-
         </div>
       </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="cta" id="cta">
-      <div class="container">
-
-        <p class="cta-tag">
-          READY TO GET STARTED?
-        </p>
-
-        <h2 class="cta-title">
-          See how SMS can transform your school
-        </h2>
-
-        <p class="cta-subtitle">
-          Schedule a personalized demo and discover how our platform helps
-          schools stay organized, save time, and improve communication every
-          single day.
-        </p>
-
-        <div class="cta-buttons">
-          <a href="#contact" class="cta-btn-primary">
-            Book a Demo →
-          </a>
-
-          <a href="#features" class="cta-btn-secondary">
-            Learn More
-          </a>
+      <div class="experience-content" id="superadmin">
+        <div class="role-experience-card">
+          <div class="role-experience-copy">
+            <div class="role-icon superadmin"><i class="fa-solid fa-sitemap"></i></div>
+            <p class="role-kicker">PLATFORM ADMINISTRATION</p>
+            <h3>Multi-school oversight without mixing school-level operations.</h3>
+            <p>Platform administrators can manage organizations, branches, global users, billing, sessions, and platform activity from one consistent workspace.</p>
+            <div class="role-feature-grid">
+              <span><i class="fa-solid fa-check"></i> Organizations & branches</span>
+              <span><i class="fa-solid fa-check"></i> Global users & roles</span>
+              <span><i class="fa-solid fa-check"></i> Platform billing</span>
+              <span><i class="fa-solid fa-check"></i> Sessions & audit history</span>
+              <span><i class="fa-solid fa-check"></i> Security oversight</span>
+              <span><i class="fa-solid fa-check"></i> Cross-campus visibility</span>
+            </div>
+          </div>
+          <div class="role-ui-preview network-preview">
+            <div class="role-ui-top"><span>Organization Network</span><small>Live overview</small></div>
+            <div class="network-root"><i class="fa-solid fa-building-columns"></i><div><b>Al-Noor Education Group</b><small>3 active branches</small></div></div>
+            <div class="network-branches"><div><i class="fa-solid fa-school"></i><span><b>Richardson</b><small>847 students</small></span></div><div><i class="fa-solid fa-school"></i><span><b>Plano</b><small>612 students</small></span></div><div><i class="fa-solid fa-school"></i><span><b>Learning Center</b><small>188 students</small></span></div></div>
+          </div>
         </div>
-
-        <p class="cta-note">
-          No credit card required. Free 30-day trial for all schools.
-        </p>
-
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-      <div class="container">
-
-        <div class="footer-top">
-
-          <div class="footer-brand">
-            <a href="#home" class="footer-logo">
-              <div class="footer-logo-box">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <span>SMS</span>
-            </a>
-
-            <p class="footer-description">
-              School Management System — the all-in-one platform helping schools stay organized, save time, and improve communication.
-            </p>
-
-            <div class="footer-contact">
-              <a href="mailto:contact@schoolmanagementsystem.com">contact@schoolmanagementsystem.com</a>
-              <span>(555) 123-4567</span>
-            </div>
-          </div>
-
-          <div class="footer-links">
-
-            <div class="footer-column">
-              <h4>Product</h4>
-              <a href="#features">Features</a>
-              <a href="#cta">Pricing</a>
-              <a href="#security">Security</a>
-              <a href="#platform">Integrations</a>
-              <a href="#contact">API</a>
-            </div>
-
-            <div class="footer-column">
-              <h4>Solutions</h4>
-              <a href="#solutions">Private Schools</a>
-              <a href="#solutions">Islamic Schools</a>
-              <a href="#solutions">Charter Schools</a>
-              <a href="#solutions">Small Districts</a>
-            </div>
-
-            <div class="footer-column">
-              <h4>Company</h4>
-              <a href="#about">About</a>
-              <a href="#platform">Blog</a>
-              <a href="#cta">Careers</a>
-              <a href="#contact">Contact</a>
-              <a href="#platform">Partners</a>
-            </div>
-
-            <div class="footer-column">
-              <h4>Support</h4>
-              <a href="#contact">Help Center</a>
-              <a href="#platform">Documentation</a>
-              <a href="#about">Community</a>
-              <a href="#security">Status</a>
-              <a href="#platform">Changelog</a>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            © 2026 School Management System. All rights reserved.
-          </p>
-
-          <div class="footer-bottom-links">
-            <a href="#security">Privacy Policy</a>
-            <a href="#contact">Terms of Service</a>
-            <a href="#security">Cookie Policy</a>
-          </div>
-        </div>
-
+  <section class="product-band alt" id="year-management">
+    <div class="container year-showcase">
+      <div class="showcase-copy">
+        <p class="product-kicker">YEAR-TO-YEAR CONTINUITY</p>
+        <h3>Close one year cleanly and start the next without rebuilding the school.</h3>
+        <p>The completed year stays archived while administrators decide exactly what happens to each student and which class structures should carry forward.</p>
+        <ul class="showcase-list">
+          <li><i class="fa-solid fa-circle-check"></i><span>Promote students into the next grade</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Repeat a grade when needed</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Mark graduates and students who are not returning</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Skip undecided students and review them later</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Copy class structure without carrying old rosters into the new year</span></li>
+        </ul>
       </div>
-    </footer>
+      <div class="year-ui">
+        <div class="ui-toolbar"><strong>School Year Setup</strong><span>Archive → Review → Activate</span></div>
+        <div class="ui-body">
+          <div class="year-current"><div><small>Current Year</small><b>2026–2027</b></div><span>Active</span></div>
+          <div class="year-steps">
+            <div class="year-step"><div class="year-step-num">1</div><div><b>Review & Close</b><small>Confirm records are ready to archive</small></div><div class="status">Ready</div></div>
+            <div class="year-step"><div class="year-step-num">2</div><div><b>Review Students</b><small>Promote · repeat · graduate · not returning · skip</small></div><div class="status">Review</div></div>
+            <div class="year-step"><div class="year-step-num">3</div><div><b>Copy Structure</b><small>Bring selected class setup into the new year</small></div><div class="status">Optional</div></div>
+            <div class="year-step"><div class="year-step-num">4</div><div><b>Start New Year</b><small>Activate the new year after final review</small></div><div class="status">Final</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <section class="product-band" id="permissions">
+    <div class="container permissions-showcase">
+      <div class="permission-ui">
+        <div class="ui-toolbar"><strong>Teacher Permissions — Ms. Aisha</strong><span>Custom profile</span></div>
+        <div class="ui-body">
+          <div class="permission-row"><div><b>Attendance</b><small>See and edit class attendance</small></div><span class="permission-value manage">Manage</span></div>
+          <div class="permission-row"><div><b>Gradebook</b><small>View grades but do not edit</small></div><span class="permission-value view">View only</span></div>
+          <div class="permission-row"><div><b>Guardian Contacts</b><small>Phone, email, and household contact details</small></div><span class="permission-value none">No access</span></div>
+          <div class="permission-row"><div><b>Health Alerts</b><small>Relevant emergency and allergy information</small></div><span class="permission-value view">View</span></div>
+          <div class="permission-row"><div><b>Documents</b><small>Download and upload classroom files</small></div><span class="permission-value manage">Manage</span></div>
+        </div>
+      </div>
+      <div class="showcase-copy">
+        <p class="product-kicker">GRANULAR STAFF ACCESS</p>
+        <h3>Give each teacher the access they need — not a one-size-fits-all role.</h3>
+        <p>A principal can start from a permission profile and then customize individual teacher access by module and action.</p>
+        <ul class="showcase-list">
+          <li><i class="fa-solid fa-circle-check"></i><span>View, Manage, or No Access for supported modules</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Hidden modules disappear from the teacher navigation</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Direct-page access checks the same permission</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Highly sensitive student identifiers are excluded from teacher permissions entirely</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="comparison" id="why-switch">
+    <div class="container">
+      <p class="comparison-tag">WHY SWITCH</p>
+      <h2 class="comparison-title">Stop juggling tools. Start running your school.</h2>
+      <div class="comparison-grid">
+        <div class="comparison-card old">
+          <h3>The Old Way</h3>
+          <ul>
+            <li><i class="fa-solid fa-xmark"></i> Scattered spreadsheets for grades and attendance</li>
+            <li><i class="fa-solid fa-xmark"></i> Separate lists for students, parents, and admissions</li>
+            <li><i class="fa-solid fa-xmark"></i> Paper forms and disconnected file storage</li>
+            <li><i class="fa-solid fa-xmark"></i> Manual year-to-year student rollover</li>
+            <li><i class="fa-solid fa-xmark"></i> One broad staff role with too much or too little access</li>
+            <li><i class="fa-solid fa-xmark"></i> Different tools for every department</li>
+          </ul>
+        </div>
+        <div class="comparison-card new">
+          <h3>The SMS Way</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Connected student, family, academic, and billing records</li>
+            <li><i class="fa-solid fa-circle-check"></i> Admissions flows directly into enrollment</li>
+            <li><i class="fa-solid fa-circle-check"></i> School Home and Class Home organize daily school life</li>
+            <li><i class="fa-solid fa-circle-check"></i> Guided school-year closeout and new-year setup</li>
+            <li><i class="fa-solid fa-circle-check"></i> Granular teacher permissions and protected-record separation</li>
+            <li><i class="fa-solid fa-circle-check"></i> One platform across schools, branches, staff, students, and families</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-band alt" id="network">
+    <div class="container network-showcase">
+      <div class="showcase-copy">
+        <p class="product-kicker">MULTI-SCHOOL & MULTI-BRANCH</p>
+        <h3>Manage one campus or a full school network.</h3>
+        <p>The architecture separates organization-level oversight from school and branch operations so each campus stays organized while leadership can still see the bigger picture.</p>
+        <ul class="showcase-list">
+          <li><i class="fa-solid fa-circle-check"></i><span>Organizations, schools, and branches</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>School administrators and branch administrators</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Branch-aware students, teachers, classes, and school-home content</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>Super Admin oversight with a consistent global workspace</span></li>
+        </ul>
+      </div>
+      <div class="network-ui">
+        <div class="ui-toolbar"><strong>Organization Structure</strong><span>Multi-campus ready</span></div>
+        <div class="ui-body">
+          <div class="org-node"><i class="fa-solid fa-layer-group"></i><span><b>Education Organization</b><small>Super Admin oversight</small></span></div>
+          <div class="network-connector"></div>
+          <div class="branch-nodes">
+            <div class="branch-node"><i class="fa-solid fa-school"></i><b>Main Campus</b><small>School administration</small></div>
+            <div class="branch-node"><i class="fa-solid fa-school-flag"></i><b>North Campus</b><small>Branch administration</small></div>
+            <div class="branch-node"><i class="fa-solid fa-building"></i><b>Learning Center</b><small>Branch users</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="security" id="security">
+    <div class="container">
+      <p class="security-tag">SECURITY & ACCESS</p>
+      <h2 class="security-title">Sensitive information should never be ordinary portal data.</h2>
+      <p class="security-subtitle">SMS separates routine student information from protected identifiers and is structured so production authorization can be enforced at the backend and database level.</p>
+      <div class="security-grid">
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-eye"></i></div><h3>Role-Based Access</h3><p>Different portal roles and page-level access rules keep users focused on what they are responsible for.</p></div>
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-sliders"></i></div><h3>Teacher Permissions</h3><p>School leadership can customize view and manage permissions for individual teachers.</p></div>
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-id-card-clip"></i></div><h3>Protected Records</h3><p>SSN and government identifiers are separated from everyday student profiles and restricted to top-level authorized staff.</p></div>
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-list-check"></i></div><h3>Access History</h3><p>The protected-record workflow is designed to record opens, reveals, and edits for accountability.</p></div>
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-user-lock"></i></div><h3>Server-Side Ready</h3><p>The frontend permissions map cleanly to Supabase Auth and row-level security for production enforcement.</p></div>
+        <div class="security-card"><div class="security-icon"><i class="fa-solid fa-database"></i></div><h3>Data Separation</h3><p>School, branch, family, student, academic, billing, and sensitive-record data can be isolated by policy.</p></div>
+      </div>
+      <p class="trust-note">The current downloadable project is a frontend workflow demo. Production authentication, database security, storage, and policy enforcement are intentionally planned for the Supabase backend stage rather than being overstated here.</p>
+    </div>
+  </section>
+
+  <section class="platform-overview" id="platform">
+    <div class="container">
+      <p class="platform-tag">COMPREHENSIVE PLATFORM</p>
+      <h2 class="platform-title">Built for the full school lifecycle</h2>
+      <p class="platform-subtitle">Organize daily school operations without losing the long-term history behind every student, family, class, payment, and school year.</p>
+      <div class="platform-grid">
+        <div class="platform-card"><div class="platform-icon"><i class="fa-solid fa-users"></i></div><h3>Student & Family Records</h3><p>Keep enrollment, guardians, contacts, emergency details, and academic history connected.</p></div>
+        <div class="platform-card"><div class="platform-icon"><i class="fa-regular fa-message"></i></div><h3>School Communication</h3><p>Publish news, announcements, events, messages, forms, lunch details, and community updates.</p></div>
+        <div class="platform-card"><div class="platform-icon"><i class="fa-solid fa-book-open-reader"></i></div><h3>Academic Workflows</h3><p>Classes, semesters, attendance, assignments, gradebook, report cards, and classroom resources.</p></div>
+        <div class="platform-card"><div class="platform-icon"><i class="fa-solid fa-money-check-dollar"></i></div><h3>Family Billing</h3><p>Charges, payments, receipt history, outstanding balances, and printable account statements.</p></div>
+        <div class="platform-card"><div class="platform-icon"><i class="fa-solid fa-calendar-days"></i></div><h3>Year Management</h3><p>Archive completed years and carry the right students and class structures into the next one.</p></div>
+        <div class="platform-card"><div class="platform-icon"><i class="fa-solid fa-sitemap"></i></div><h3>Network Operations</h3><p>Support one school, multiple campuses, branches, and organization-level administration.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <div class="container">
+      <p class="cta-tag">READY TO SEE IT?</p>
+      <h2 class="cta-title">See how SMS brings the whole school together</h2>
+      <p class="cta-subtitle">Explore the working portal demo or request a walkthrough of the administration, teacher, family, student, school-home, classroom, and school-year workflows.</p>
+      <div class="cta-buttons"><a href="info/contact.html" class="cta-btn-primary">Book a Demo →</a><a href="login/login.html" class="cta-btn-secondary">Open Demo Portal</a></div>
+      <p class="cta-note">Frontend workflow demo available now. Production backend integration is the next implementation stage.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo"><div class="footer-logo-box"><i class="fa-solid fa-graduation-cap"></i></div><span>SMS</span></a>
+        <p class="footer-description">School Management System — one connected platform for school operations, classrooms, families, students, and multi-campus administration.</p>
+        <div class="footer-contact"><a href="info/contact.html">Request a demo or contact us</a></div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column"><h4>Product</h4><a href="#features">Features</a><a href="info/pricing.html">Pricing</a><a href="#security">Security</a><a href="login/login.html">Sign In</a></div>
+        <div class="footer-column"><h4>Solutions</h4><a href="#solutions">Private Schools</a><a href="#solutions">Islamic Schools</a><a href="#solutions">Academies</a><a href="#network">Multi-Campus</a></div>
+        <div class="footer-column"><h4>Explore</h4><a href="#school-home">School Home</a><a href="#classrooms">Classrooms</a><a href="#year-management">Year Management</a><a href="#permissions">Permissions</a></div>
+        <div class="footer-column"><h4>Company</h4><a href="info/about.html">About</a><a href="info/contact.html">Contact</a><a href="info/privacy.html">Privacy</a><a href="info/terms.html">Terms</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; <span id="footerYear"></span> School Management System.</p><div class="footer-bottom-links"><a href="info/privacy.html">Privacy</a><a href="info/terms.html">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/landing.js"></script>
 </body>
-
 </html>

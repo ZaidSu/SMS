@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+
+  <title>Role Templates | SMS Super Admin</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <!-- Shared Sidebar CSS -->
+  <link rel="stylesheet" href="../shared/sidebar.css" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="role-templates.css" />
+  <link rel="stylesheet" href="../shared/unified.css" />
+</head>
+<body data-page="role-templates">
+  <script src="../../assets/js/data.js"></script>
+    <script src="../../assets/js/demo-store.js"></script>
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/security.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script>SMS_SEC.init({patchConsole:false}); if(!SMS_SEC.guard(["superadmin"], "../../login/login.html")) throw new Error("Auth");</script>
+
+
+  <div class="dashboard-layout">
+
+    <!-- Shared Sidebar -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Mobile Sidebar Overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Page Header -->
+      <header class="page-header">
+        <button class="menu-btn" id="menuBtn" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="page-title">
+          <h1>Role Templates</h1>
+          <p>
+            Manage reusable permission templates for admins, staff, teachers,
+            finance users, and other platform roles.
+          </p>
+        </div>
+
+        <button class="primary-btn" id="addRoleBtn" type="button">
+          <i class="fa-solid fa-plus"></i>
+          Add Role Template
+        </button>
+      </header>
+
+      <!-- Summary Cards -->
+      <section class="summary-grid">
+        <div class="summary-card">
+          <p>Total Templates</p>
+          <h2 id="totalTemplates">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Active</p>
+          <h2 id="activeTemplates">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Inactive</p>
+          <h2 id="inactiveTemplates">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Archived</p>
+          <h2 id="archivedTemplates">0</h2>
+        </div>
+      </section>
+
+      <!-- Role Template Table -->
+      <section class="panel">
+        <div class="toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="roleSearch"
+              placeholder="Search role templates..."
+            />
+          </div>
+
+          <select id="roleStatusFilter">
+            <option value="all">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Template Name</th>
+                <th>Role Key</th>
+                <th>Scope</th>
+                <th>Permissions</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="roleTableBody"></tbody>
+          </table>
+        </div>
+
+        <p class="empty-state hidden" id="emptyState">
+          No role templates yet. Add your first role template to get started.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Role Modal -->
+  <div class="modal-overlay hidden" id="roleModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Role Template</h3>
+
+        <button class="icon-btn" id="closeModalBtn" type="button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="roleForm">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="roleName">Template Name</label>
+            <input
+              type="text"
+              id="roleName"
+              placeholder="Finance Admin"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="roleKey">Role Key</label>
+            <input
+              type="text"
+              id="roleKey"
+              placeholder="finance_admin"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="roleScope">Scope</label>
+
+            <select id="roleScope" required>
+              <option value="global">Global</option>
+              <option value="organization">Organization</option>
+              <option value="branch">Branch</option>
+              <option value="assigned_only">Assigned Only</option>
+              <option value="self_only">Self Only</option>
+              <option value="own_children_only">Own Children Only</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="roleStatus">Status</label>
+
+            <select id="roleStatus" required>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="roleDescription">Description</label>
+          <textarea
+            id="roleDescription"
+            rows="4"
+            placeholder="Short description of what this role can access..."
+          ></textarea>
+        </div>
+
+        <div class="role-template-tools">
+          <label>Quick Role Templates</label>
+
+          <div class="role-template-buttons">
+            <button type="button" class="template-btn" data-template="super_admin">
+              Super Admin
+            </button>
+
+            <button type="button" class="template-btn" data-template="org_admin">
+              Organization Admin
+            </button>
+
+            <button type="button" class="template-btn" data-template="principal">
+              Principal
+            </button>
+
+            <button type="button" class="template-btn" data-template="front_office">
+              Front Office
+            </button>
+
+            <button type="button" class="template-btn" data-template="teacher">
+              Teacher
+            </button>
+
+            <button type="button" class="template-btn" data-template="student">
+              Student
+            </button>
+
+            <button type="button" class="template-btn" data-template="parent">
+              Parent
+            </button>
+
+            <button type="button" class="template-btn clear-permissions">
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Permissions</label>
+
+          <div class="permissions-grid">
+            <!-- Filled by JavaScript -->
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="cancelModalBtn">
+            Cancel
+          </button>
+
+          <button type="submit" class="primary-btn">
+            Save Role Template
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirm Modal -->
+  <div class="confirm-overlay hidden" id="confirmOverlay">
+    <div class="confirm-box">
+      <div class="confirm-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+
+      <h3>Delete Role Template</h3>
+
+      <p id="confirmMessage">
+        Are you sure you want to delete this role template?
+      </p>
+
+      <div class="confirm-actions">
+        <button class="cancel-btn" id="cancelDeleteBtn" type="button">
+          Cancel
+        </button>
+
+        <button class="delete-btn" id="confirmDeleteBtn" type="button">
+          Delete Template
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Super Admin Layout -->
+  <script src="../shared/bridge.js"></script>
+  <script src="../shared/superadmin-layout.js"></script>
+
+  <!-- Page JavaScript -->
+  <script src="role-templates.js"></script>
+</body>
+</html>

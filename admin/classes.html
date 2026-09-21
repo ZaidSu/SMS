@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Classes — School Management System</title>
+  <meta name="description" content="Classes | School Management System">
+  <meta property="og:title" content="Classes | School Management System">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <!-- Security guard: runs BEFORE any content renders -->
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/demo-store.js"></script>
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/security.js"></script>
+  <script>
+    SMS_SEC.init({ patchConsole: true });
+    // Immediate auth check — wipes DOM and redirects if not authenticated
+    if (!SMS_SEC.guard(["superadmin","school_admin","branch_admin","front_desk"], "../login/login.html")) { throw new Error("Auth"); }
+  </script>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-wrapper">
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="page-content">
+        <div class="loading-state">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <span>Loading…</span>
+        </div>
+      </main>
+      <footer class="footer">
+        <p>&copy; <span id="footer-year"></span> School Management System. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <div id="toast-root"></div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="./admin-layout.js"></script>
+  <script src="./classes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({ duration: 350, easing: "ease-out-cubic", once: true, offset: 30 });</script>
+</body>
+</html>

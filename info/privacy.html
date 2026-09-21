@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — School Management System</title>
+  <meta name="description" content="School Management System Privacy Policy — how we collect, use, and protect your data.">
+  <meta property="og:title" content="Privacy Policy | School Management System">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/landing.css">
+  <link rel="stylesheet" href="../assets/css/info.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark"><i class="fa-solid fa-graduation-cap"></i></div>
+    School Management System
+  </a>
+  <div class="nav-links">
+    <a href="features.html" class="nav-link">Features</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="careers.html" class="nav-link">Careers</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="../login/login.html" class="btn-signin">Sign In</a>
+    <a href="contact.html" class="btn-demo"><i class="fa-solid fa-calendar-check" style="font-size:.8125rem"></i> Request Demo</a>
+  </div>
+  <button class="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div class="page-hero">
+  <h1>Privacy Policy</h1>
+  <p>We take student data privacy seriously. Here's exactly how we handle your information.</p>
+</div>
+<div class="content-section">
+<p class="last-updated">Last updated: September 3, 2026</p>
+
+<h2>1. Information We Collect</h2>
+<p>We collect information you provide directly when you use the School Management System, including:</p>
+<ul>
+  <li>Account information (name, email, role, school affiliation)</li>
+  <li>Student records entered by authorized school administrators</li>
+  <li>Usage data (page views, feature usage, login timestamps)</li>
+  <li>Communications sent through the messaging system</li>
+</ul>
+
+<h2>2. How We Use Information</h2>
+<p>We use collected information to:</p>
+<ul>
+  <li>Provide and improve the School Management System platform</li>
+  <li>Enable authorized users to access their role-appropriate data</li>
+  <li>Send system notifications and service communications</li>
+  <li>Maintain audit logs for security and accountability</li>
+  <li>Provide customer support</li>
+</ul>
+<p>We do not sell student data. We do not use student data for advertising. We do not share data with third parties except as required to operate the service (e.g., cloud infrastructure providers under data processing agreements).</p>
+
+<h2>3. Student Data &amp; School Privacy Requirements</h2>
+<p>Schools are responsible for determining which student records may be entered into the platform and for meeting their obligations under laws such as FERPA, COPPA, and applicable state privacy rules. The production service will be configured with the contractual, technical, and administrative controls required for the schools it serves before real student data is accepted.</p>
+<p>This frontend build uses demonstration data and browser storage only. It should not be used to store real student records until the production backend, policies, and school agreements are in place.</p>
+
+<h2>4. Data Security</h2>
+<p>The current build is a frontend prototype. Its browser-side role checks, demo audit history, and local session handling are for workflow testing and are not a substitute for production security.</p>
+<p>Before real school data is used, authentication, authorization, database policies, secure file storage, server-side audit controls, backups, encryption in transit/at rest, and operational monitoring will be implemented in the Supabase/backend phase and documented based on the final hosting configuration.</p>
+
+<h2>5. Data Retention</h2>
+<p>Production retention and deletion periods will be defined in the final service agreement and backend data-retention policy. The browser demo can be reset locally and should contain demonstration data only.</p>
+
+<h2>6. Your Rights</h2>
+<p>Depending on your location, you may have rights to access, correct, delete, or export your personal data. To exercise these rights, contact your school administrator or email us at privacy@sms-platform.com.</p>
+
+<h2>7. Contact</h2>
+<p>For privacy questions or concerns: privacy@sms-platform.com</p>
+</div>
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3><i class="fa-solid fa-graduation-cap" style="color:#2563eb;margin-right:8px"></i>School Management System</h3>
+      <p>A complete, modern platform built for schools that want to run smarter — from enrollment to graduation.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="features.html" class="footer-link">Features</a>
+      <a href="pricing.html"  class="footer-link">Pricing</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="about.html"   class="footer-link">About</a>
+      <a href="careers.html" class="footer-link">Careers</a>
+      <a href="contact.html" class="footer-link">Contact</a>
+    </div>
+    <div>
+      <h4>Portals</h4>
+      <a href="../login/login.html" class="footer-link">Admin Portal</a>
+      <a href="../login/login.html" class="footer-link">Teacher Portal</a>
+      <a href="../login/login.html" class="footer-link">Parent Portal</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; <span id="footer-year"></span> School Management System.</div>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:400,easing:"ease-out-cubic",once:true});</script>
+</body>
+</html>

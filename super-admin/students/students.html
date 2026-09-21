@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+
+  <title>Students | SMS Super Admin</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <!-- Shared Sidebar CSS -->
+  <link rel="stylesheet" href="../shared/sidebar.css" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="students.css" />
+  <link rel="stylesheet" href="../shared/unified.css" />
+</head>
+<body data-page="students">
+  <script src="../../assets/js/data.js"></script>
+    <script src="../../assets/js/demo-store.js"></script>
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/security.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script>SMS_SEC.init({patchConsole:false}); if(!SMS_SEC.guard(["superadmin"], "../../login/login.html")) throw new Error("Auth");</script>
+
+
+  <div class="dashboard-layout">
+
+    <!-- Shared Sidebar -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Mobile Sidebar Overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Page Header -->
+      <header class="page-header">
+        <button class="menu-btn" id="menuBtn" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="page-title">
+          <h1>Students</h1>
+          <p>
+            Select an organization and branch to view student records for support,
+            auditing, and platform management.
+          </p>
+        </div>
+
+        <button class="primary-btn" id="addStudentBtn" type="button" disabled>
+          <i class="fa-solid fa-plus"></i>
+          Add Student
+        </button>
+      </header>
+
+      <!-- Access Selector -->
+      <section class="selector-panel">
+        <div class="selector-header">
+          <div>
+            <h2>Choose Student Data Scope</h2>
+            <p>Start by selecting the organization you want to access.</p>
+          </div>
+
+          <span class="scope-badge" id="currentScopeBadge">
+            No organization selected
+          </span>
+        </div>
+
+        <div class="selector-grid">
+          <div class="form-group">
+            <label for="organizationSelect">Organization</label>
+            <select id="organizationSelect">
+              <option value="">Select organization</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="branchSelect">Branch</label>
+            <select id="branchSelect" disabled>
+              <option value="">Select branch</option>
+            </select>
+          </div>
+
+          <button class="secondary-btn" id="clearSelectionBtn" type="button">
+            <i class="fa-solid fa-rotate-left"></i>
+            Clear
+          </button>
+        </div>
+      </section>
+
+      <!-- Summary Cards -->
+      <section class="summary-grid">
+        <div class="summary-card">
+          <p>Total Students</p>
+          <h2 id="totalStudents">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Active</p>
+          <h2 id="activeStudents">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Inactive</p>
+          <h2 id="inactiveStudents">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Withdrawn</p>
+          <h2 id="withdrawnStudents">0</h2>
+        </div>
+      </section>
+
+      <!-- Students Panel -->
+      <section class="panel">
+        <div class="toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="studentSearch"
+              placeholder="Search students..."
+              disabled
+            />
+          </div>
+
+          <select id="studentStatusFilter" disabled>
+            <option value="all">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="withdrawn">Withdrawn</option>
+          </select>
+        </div>
+
+        <div class="locked-state" id="lockedState">
+          <div class="locked-icon">
+            <i class="fa-solid fa-school-lock"></i>
+          </div>
+
+          <h3>Select an organization first</h3>
+          <p>
+            Student records will appear after you choose an organization.
+            If that organization has branches, choose a branch to narrow the data.
+          </p>
+        </div>
+
+        <div class="students-content hidden" id="studentsContent">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student ID</th>
+                  <th>Grade</th>
+                  <th>Organization</th>
+                  <th>Branch</th>
+                  <th>Parent Email</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="studentTableBody"></tbody>
+            </table>
+          </div>
+
+          <p class="empty-state hidden" id="emptyState">
+            No students found for this organization or branch.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Student Modal -->
+  <div class="modal-overlay hidden" id="studentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="studentModalTitle">Add Student</h3>
+
+        <button class="icon-btn" id="closeModalBtn" type="button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="studentForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" placeholder="Enter student name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" placeholder="STU001" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentGrade">Grade</label>
+            <input type="text" id="studentGrade" placeholder="7th Grade" required />
+          </div>
+
+          <div class="form-group">
+            <label for="studentStatus">Status</label>
+            <select id="studentStatus" required>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="withdrawn">Withdrawn</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="parentEmail">Parent Email</label>
+          <input type="email" id="parentEmail" placeholder="parent@email.com" />
+        </div>
+
+        <div class="modal-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <p>
+            This student will be saved under the currently selected organization and branch.
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="cancelModalBtn">
+            Cancel
+          </button>
+
+          <button type="submit" class="primary-btn">
+            Save Student
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirm Modal -->
+  <div class="confirm-overlay hidden" id="confirmOverlay">
+    <div class="confirm-box">
+      <div class="confirm-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+
+      <h3>Delete Student</h3>
+
+      <p id="confirmMessage">
+        Are you sure you want to delete this student?
+      </p>
+
+      <div class="confirm-actions">
+        <button class="cancel-btn" id="cancelDeleteBtn" type="button">
+          Cancel
+        </button>
+
+        <button class="delete-btn" id="confirmDeleteBtn" type="button">
+          Delete Student
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Super Admin Layout -->
+  <script src="../shared/bridge.js"></script>
+  <script src="../shared/superadmin-layout.js"></script>
+
+  <!-- Page JavaScript -->
+  <script src="students.js"></script>
+</body>
+</html>

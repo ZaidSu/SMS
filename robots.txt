@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /login/
+Disallow: /admin/
+Disallow: /teacher/
+Disallow: /parent/
+Disallow: /student/
+Disallow: /super-admin/
+Allow: /
